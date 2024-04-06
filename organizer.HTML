@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="organizer-styles.css">
+    <title>Organizer Dashboard</title>
+</head>
+
+<body>
+    <nav class="organizer-navbar">
+        <ul class="nav-links">
+            <li><a href="#events-container">Create Event</a></li>
+            <li><a href="#members-section">View Participants</a></li>
+            <li><a href="#unpublished-events-section">Manage Events</a></li>
+            <li><a href="#members-section">Manage Participants</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content will go here -->
+    <section class="events-section">
+        <section class="home-section">
+            <div class="container">
+                <h1>Welcome Dear Organizer</h1>
+            </div>
+        </section>
+        <div>
+
+
+            <div class="events-container" id="events-container">
+                <!-- Existing Event Cards -->
+                <!-- Placeholder for demonstration -->
+                <div class="event-card">
+                    <h3>Event Title 1</h3>
+                    <img src="images/g-1.jpg" alt="Event 1 Image" class="event-image">
+                    <p class="event-time">Date & Time: March 30, 7:00 PM</p>
+                    <p class="event-venue">Venue: Downtown Conference Center</p>
+                    <p class="event-description">Join us for a night of learning and networking with industry leaders.
+                    </p>
+                </div>
+
+                <div class="event-card">
+                    <h3>Event Title 1</h3>
+                    <img src="images/g-1.jpg" alt="Event 1 Image" class="event-image">
+                    <p class="event-time">Date & Time: March 30, 7:00 PM</p>
+                    <p class="event-venue">Venue: Downtown Conference Center</p>
+                    <p class="event-description">Join us for a night of learning and networking with industry leaders.
+                    </p>
+                </div>
+
+                <div class="event-card add-event" onclick="showEventForm()">+</div>
+            </div>
+
+            <!-- Event Creation Form (Hidden Initially) -->
+            <div class="event-form-container" id="eventForm">
+                <form class="event-form">
+                    <label for="eventName">Event Name:</label>
+                    <input type="text" id="eventName" name="eventName">
+
+                    <label for="eventTime">Event Time:</label>
+                    <input type="text" id="eventTime" name="eventTime">
+
+                    <label for="eventLocation">Event Location:</label>
+                    <input type="text" id="eventLocation" name="eventLocation">
+
+                    <label for="eventDescription">Event Description:</label>
+                    <textarea id="eventDescription" name="eventDescription"></textarea>
+
+                    <label for="eventDevice">Device:</label>
+                    <select id="eventDevice" name="eventDevice">
+                        <option value="">Select Device</option>
+                        <!-- Device options will be populated here -->
+                    </select>
+
+                    <label for="eventImage">Event Image:</label>
+                    <input type="text" id="imageurl" name="imageurl">
+                    <!-- <input type="file" id="eventImage" name="eventImage"> -->
+
+                    <div class="form-actions">
+                        <button type="submit">Submit</button>
+                        <button type="button" onclick="hideEventForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="unpublished-events-section" id="unpublished-events-section">
+        <h2>Unpublished Events</h2>
+
+        <section class="past-events-section">
+            <!-- Example of a Past Event Card -->
+
+            <div class="events-list">
+                <!-- Example Event -->
+                <div class="event">
+                    <div class="event-card">
+                        <h3>Past Event Title 1</h3>
+                        <img src="images/g-1.jpg" alt="Past Event 1 Image" class="event-image">
+                        <p class="event-time">Date & Time: January 20, 6:00 PM</p>
+                        <p class="event-venue">Venue: Old Town Hall</p>
+                        <p class="event-description">A look back at our memorable evening of insights and networking.
+                        </p>
+                        <button class="delete-btn" onclick="deleteEvent('eventID1')">Delete</button>
+                    </div>
+                    <div class="event-card">
+                        <h3>Past Event Title 1</h3>
+                        <img src="images/g-1.jpg" alt="Past Event 1 Image" class="event-image">
+                        <p class="event-time">Date & Time: January 20, 6:00 PM</p>
+                        <p class="event-venue">Venue: Old Town Hall</p>
+                        <p class="event-description">A look back at our memorable evening of insights and networking.
+                        </p>
+                        <button class="delete-btn" onclick="deleteEvent('eventID1')">Delete</button>
+                    </div>
+                    <div class="event-card">
+                        <h3>Past Event Title 1</h3>
+                        <img src="images/g-1.jpg" alt="Past Event 1 Image" class="event-image">
+                        <p class="event-time">Date & Time: January 20, 6:00 PM</p>
+                        <p class="event-venue">Venue: Old Town Hall</p>
+                        <p class="event-description">A look back at our memorable evening of insights and networking.
+                        </p>
+                        <button class="delete-btn" onclick="deleteEvent('eventID1')">Delete</button>
+                    </div>
+                   
+                </div>
+
+
+
+                <!-- Repeat for each unpublished event -->
+            </div>
+
+        </section>
+    </section>
+
+    <section class="members-section" id="members-section">
+        <h2>Members List</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <!-- Example Member Row -->
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>johndoe@example.com</td>
+                        <td>Participant</td>
+                        <td>
+                            <button class="edit-btn">Edit</button>
+                            <button class="upgrade-btn">Make Admin</button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                    <!-- Repeat for each member -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+    
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>

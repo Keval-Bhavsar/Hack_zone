@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form action="signup_submit.php" method="POST" class="user-form">
+            <div class="form-row">
+                <label for="signup-name">Name:</label>
+                <input type="text" id="signup-name" name="name" required>
+            </div>
+            <div class="form-row">
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" name="email" required>
+            </div>
+            <div class="form-row">
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" name="password" required>
+            </div>
+
+            <!-- Existing form fields -->
+
+            <div class="form-row">
+                <label for="signup-role">Role:</label>
+                <select id="signup-role" name="role" required>
+                    <option value="">Select your role</option>
+                    <option value="organizer">Organizer</option>
+                    <option value="participant">Participant</option>
+                </select>
+            </div>
+
+            <!-- Remaining form fields and submit button -->
+
+            <div class="form-row">
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </div>
+        </form>
+        <p>Already have an account? <a href="login.html">Log In</a></p>
+    </div>
+</body>
+
+</html>
