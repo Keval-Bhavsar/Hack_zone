@@ -98,3 +98,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const avatar = document.querySelector('.avatar-container img');
+    const modal = document.getElementById('profilePhotoModal');
+    const deleteBtn = document.getElementById('deletePhotoBtn');
+
+    // Show the modal when the avatar is clicked
+    avatar.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+
+    // Close the modal on delete (or perform actual delete action)
+    deleteBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        alert('Photo would be deleted!');
+        // Implement actual deletion logic here
+    });
+
+    // Click anywhere outside of the modal content to close it
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+});

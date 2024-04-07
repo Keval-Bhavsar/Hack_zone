@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Event Hub </title>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="user.css">
+
+
+</head>
+
+<body>
+
+    <nav class="user-dashboard-nav">
+        <ul>
+            <li><a href="#edit-profile">Edit My Profile</a></li>
+            <li><a href="#my-devices">My Devices</a></li>
+            <li><a href="#register-event">Register in Event</a></li>
+        </ul>
+        <div class="avatar-container"><a href="#user-profile"><img src="images/about-img.jpg" alt="User Avatar"></a>
+        </div>
+    </nav>
+
+    <!-- Profile Photo Modal -->
+    <div id="profilePhotoModal" class="modal">
+        <div class="modal-content">
+            <img src="images/about-img.jpg" alt="User Avatar" class="modal-avatar">
+            <button id="deletePhotoBtn" class="delete-btn">Delete Photo</button>
+        </div>
+    </div>
+
+    <section class="events-section">
+        <section class="home-section">
+            <div class="container">
+                <h1>Welcome Dear User</h1>
+            </div>
+        </section>
+
+
+
+        <div>
+            <div class="profile-section">
+                <div class="profile-display-card">
+                    <img src="images/about-img.jpg" alt="User Avatar" class="profile-avatar">
+                    <div class="profile-details">
+                        <h3>John Doe</h3>
+                        <p>Email: johndoe@example.com</p>
+                        <p>Description: Short user bio goes here.</p>
+                    </div>
+                </div>
+                <div class="edit-icon" onclick="toggleEditForm()">✎</div>
+            </div>
+
+            <!-- Hidden Edit Form -->
+            <div class="edit-form-container" id="editForm" style="display:none;">
+                <input type="text" placeholder="Your Name" id="userName">
+                <input type="email" placeholder="Your Email" id="userEmail">
+                <div class="password-field">
+                    <input type="password" placeholder="Password" id="userPassword">
+                    <button type="button" onclick="togglePasswordVisibility()">Show</button>
+                </div>
+                <input type="text" placeholder="Image URL" id="userAvatarUrl">
+                <textarea placeholder="Description" id="userDescription"></textarea>
+                <button type="button" onclick="updateProfile()">Submit</button>
+                <button type="button" onclick="toggleEditForm()">Cancel</button>
+            </div>
+
+            <div class="device-management-container">
+                <!-- Device Card (Repeat for each device) -->
+                <div class="device-card">
+                    <h3>Device Name</h3>
+                    <p>Description of the device...</p>
+                    <button class="edit-btn" onclick="editDevice(0)">Edit </button>
+                    <button class="delete-btn">Delete</button>
+                </div>
+
+                <!-- Special Card for Adding New Device -->
+                <div class="add-device-card" onclick="toggleAddDeviceForm()">
+                    <span class="add-icon">+</span>
+                </div>
+            </div>
+
+            <!-- Hidden Form for Adding/Editing Device -->
+            <div class="device-form-container" id="deviceFormContainer" style="display:none;">
+                <input type="text" id="deviceName" placeholder="Device Name">
+                <textarea id="deviceDescription" placeholder="Device Description"></textarea>
+                <button type="button" onclick="submitDeviceForm()">Submit</button>
+                <button type="button" onclick="toggleDeviceForm()">Cancel</button>
+            </div>
+
+
+            <!-- Device Registration Section -->
+            <div class="device-registration-container">
+                <h2>Register Device at an Event</h2>
+                <select id="deviceSelect">
+                    <!-- Options will be populated based on the devices array -->
+                </select>
+                <select id="eventSelect">
+                    <option value="">Select an Event</option>
+                    <option value="event1">Event 1</option>
+                    <option value="event2">Event 2</option>
+                    <!-- Add more events as needed -->
+                </select>
+                <button type="button" onclick="registerDevice()">Register</button>
+            </div>
+
+
+            <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                    const avatar = document.querySelector('.avatar-container img');
+                    const modal = document.getElementById('profilePhotoModal');
+                    const deleteBtn = document.getElementById('deletePhotoBtn');
+
+                    // Show the modal when the avatar is clicked
+                    avatar.addEventListener('click', () => {
+                        modal.style.display = 'block';
+                    });
+
+                    // Close the modal on delete (or perform actual delete action)
+                    deleteBtn.addEventListener('click', () => {
+                        modal.style.display = 'none';
+                        alert('Photo would be deleted!');
+                        // Implement actual deletion logic here
+                    });
+
+                    // Click anywhere outside of the modal content to close it
+                    window.onclick = (event) => {
+                        if (event.target == modal) {
+                            modal.style.display = 'none';
+                        }
+                    };
+                });
+
+
+
+
+                function toggleEditForm() {
+                    const form = document.getElementById('editForm');
+                    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+                }
+
+                function togglePasswordVisibility() {
+                    const passwordInput = document.getElementById('userPassword');
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                }
+
+                // Placeholder for updateProfile function
+                function updateProfile() {
+                    // Here, you'd collect form values and update the profile display card accordingly
+                    // This part requires integration with your backend to truly update user data
+                    alert('Profile updated! (Demo)');
+                }
+
+
+
+
+
+
+
+                function toggleAddDeviceForm() {
+                    const formContainer = document.getElementById('deviceFormContainer');
+                    formContainer.style.display = formContainer.style.display === 'none' ? 'block' : 'none';
+                }
+
+                function submitDeviceForm() {
+                    // Placeholder for form submission logic
+                    alert('Device submitted! (demo)');
+                    toggleAddDeviceForm(); // Hide form after submission for demo purposes
+                    // In a real application, you'd likely submit the form data to a server here
+                }
+
+
+
+
+                // Assuming a similar devices array and rendering logic as before
+
+                function populateDeviceSelector() {
+                    const deviceSelect = document.getElementById('deviceSelect');
+                    deviceSelect.innerHTML = '<option value="">Select a Device</option>'; // Reset selector
+                    devices.forEach(device => {
+                        const option = document.createElement('option');
+                        option.value = device.id;
+                        option.textContent = device.name;
+                        deviceSelect.appendChild(option);
+                    });
+                }
+
+                function registerDevice() {
+                    const deviceId = document.getElementById('deviceSelect').value;
+                    const eventId = document.getElementById('eventSelect').value;
+                    if (!deviceId || !eventId) {
+                        alert('Please select both a device and an event.');
+                        return;
+                    }
+                    alert(`Device ID ${deviceId} registered for Event ID ${eventId}!`);
+                    // Here, you would typically send this information to the server for actual registration
+                }
+
+                // Extend DOMContentLoaded listener to also populate device selector
+                document.addEventListener('DOMContentLoaded', () => {
+                    renderDevices();
+                    populateDeviceSelector();
+                });
+
+
+
+            </script>
+</body>
+
+</html>
