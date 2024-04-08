@@ -57,58 +57,7 @@
                 <div class="edit-icon" onclick="toggleEditForm()">✎</div>
             </div>
 
-            <!-- Hidden Edit Form -->
-            <div class="edit-form-container" id="editForm" style="display:none;">
-                <input type="text" placeholder="Your Name" id="userName">
-                <input type="email" placeholder="Your Email" id="userEmail">
-                <div class="password-field">
-                    <input type="password" placeholder="Password" id="userPassword">
-                    <button type="button" onclick="togglePasswordVisibility()">Show</button>
-                </div>
-                <input type="text" placeholder="Image URL" id="userAvatarUrl">
-                <textarea placeholder="Description" id="userDescription"></textarea>
-                <button type="button" onclick="updateProfile()">Submit</button>
-                <button type="button" onclick="toggleEditForm()">Cancel</button>
-            </div>
 
-            <div class="device-management-container">
-                <!-- Device Card (Repeat for each device) -->
-                <div class="device-card">
-                    <h3>Device Name</h3>
-                    <p>Description of the device...</p>
-                    <button class="edit-btn" onclick="editDevice(0)">Edit </button>
-                    <button class="delete-btn">Delete</button>
-                </div>
-
-                <!-- Special Card for Adding New Device -->
-                <div class="add-device-card" onclick="toggleAddDeviceForm()">
-                    <span class="add-icon">+</span>
-                </div>
-            </div>
-
-            <!-- Hidden Form for Adding/Editing Device -->
-            <div class="device-form-container" id="deviceFormContainer" style="display:none;">
-                <input type="text" id="deviceName" placeholder="Device Name">
-                <textarea id="deviceDescription" placeholder="Device Description"></textarea>
-                <button type="button" onclick="submitDeviceForm()">Submit</button>
-                <button type="button" onclick="toggleDeviceForm()">Cancel</button>
-            </div>
-
-
-            <!-- Device Registration Section -->
-            <div class="device-registration-container">
-                <h2>Register Device at an Event</h2>
-                <select id="deviceSelect">
-                    <!-- Options will be populated based on the devices array -->
-                </select>
-                <select id="eventSelect">
-                    <option value="">Select an Event</option>
-                    <option value="event1">Event 1</option>
-                    <option value="event2">Event 2</option>
-                    <!-- Add more events as needed -->
-                </select>
-                <button type="button" onclick="registerDevice()">Register</button>
-            </div>
 
 
             <div class="devices-container" id="devices-container">
@@ -152,34 +101,57 @@
                 </form>
             </div>
 
+            <section class="events-section">
 
+                <div>
+                    <div class="container">
+                        <!-- Event Card 1 -->
+                        <div class="event-card">
+                            <h3>Event Title 1</h3>
+                            <img src="images/g-1.jpg" alt="Event 1 Image" class="event-image">
+                            <p class="event-time">Date & Time: March 30, 7:00 PM</p>
+                            <p class="event-venue">Venue: Downtown Conference Center</p>
+                            <p class="event-description">Join us for a night of learning and networking with industry
+                                leaders.
+                            </p>
+                        </div>
 
+                        <div class="event-card">
+                            <h3>Event Title 1</h3>
+                            <img src="images/g-1.jpg" alt="Event 1 Image" class="event-image">
+                            <p class="event-time">Date & Time: March 30, 7:00 PM</p>
+                            <p class="event-venue">Venue: Downtown Conference Center</p>
+                            <p class="event-description">Join us for a night of learning and networking with industry
+                                leaders.
+                            </p>
+                        </div>
 
+                        <div class="event-card">
+                            <h3>Event Title 1</h3>
+                            <img src="images/g-1.jpg" alt="Event 1 Image" class="event-image">
+                            <p class="event-time">Date & Time: March 30, 7:00 PM</p>
+                            <p class="event-venue">Venue: Downtown Conference Center</p>
+                            <p class="event-description">Join us for a night of learning and networking with industry
+                                leaders.
+                            </p>
+                        </div>
 
-
-
-
-
-
-
-
-            <!-- Device Management and Add Device Form as previously defined -->
-<div>
-            <!-- Published Event Cards Container -->
-            <div class="events-container" id="publishedEventsContainer">
-                <h2>Published Events</h2>
-                <!-- Event Cards (These would be dynamically generated based on available events) -->
-                <div class="event-card">
-                    <h3>Event Title 1</h3>
-                    <img src="images/g-1.jpg" alt="Event 1 Image" class="event-image">
-                    <p class="event-time">Date & Time: March 30, 7:00 PM</p>
-                    <p class="event-venue">Venue: Downtown Conference Center</p>
-                    <p class="event-description">Join us for a night of learning and networking.</p>
-                    <button onclick="registerDeviceForEvent(1)">Register Device</button>
+                        <!-- Repeat for other event cards, changing the details accordingly -->
+                    </div>
                 </div>
-                <!-- Additional event cards -->
-            </div>
-        </div>
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -307,46 +279,6 @@
                     alert('Device deleted!');
                     // Refresh or update the device list display as needed
                 }
-
-
-
-
-                // Assuming existing JavaScript for device management
-
-                // Example array of published events
-                const events = [
-                    { id: 1, title: 'Event Title 1', image: 'images/g-1.jpg', time: 'March 30, 7:00 PM', venue: 'Downtown Conference Center', description: 'Join us for a night of learning and networking.' },
-                    // Add more events as needed
-                ];
-
-                function renderPublishedEvents() {
-                    const container = document.getElementById('publishedEventsContainer');
-                    events.forEach(event => {
-                        const eventCard = document.createElement('div');
-                        eventCard.classList.add('event-card');
-                        eventCard.innerHTML = `
-            <h3>${event.title}</h3>
-            <img src="${event.image}" alt="Event Image" class="event-image">
-            <p class="event-time">Date & Time: ${event.time}</p>
-            <p class="event-venue">Venue: ${event.venue}</p>
-            <p class="event-description">${event.description}</p>
-            <button onclick="registerDeviceForEvent(${event.id})">Register Device</button>
-        `;
-                        container.appendChild(eventCard);
-                    });
-                }
-
-                function registerDeviceForEvent(eventId) {
-                    // Placeholder for registering a device for an event
-                    // This would typically involve user input to select which device to register and sending data to the server
-                    alert(`Registering device for Event ID: ${eventId}. This action will be handled by the backend.`);
-                }
-
-                document.addEventListener('DOMContentLoaded', () => {
-                    renderPublishedEvents();
-                    // Call other render functions as necessary
-                });
-
 
 
             </script>

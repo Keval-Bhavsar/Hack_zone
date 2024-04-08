@@ -192,116 +192,6 @@ button:hover {
 
 
 
-.device-management-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
-    margin-left: 20px;
-    margin-right: 20px;
-
-    margin-bottom: 200px;
-    max-width: 98%;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-}
-
-.device-management-container:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.device-card, .add-device-card {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-    width: 200px; /* Adjust based on content */
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.device-card:hover, .add-device-card:hover {
-    transform: scale(1.05);
-}
-
-.add-icon {
-    font-size: 24px;
-    display: block;
-}
-
-.edit-btn, .delete-btn {
-    margin-top: 10px;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-.edit-btn {
-    background-color: #4CAF50;
-    color: white;
-}
-
-.delete-btn {
-    background-color: #f44336;
-    color: white;
-}
-
-.device-form-container {
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #fff;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px; /* Adjust as necessary */
-    text-align: center;
-}
-
-.device-form-container input, .device-form-container textarea {
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-
-
-
-
-.device-registration-container {
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    width: fit-content;
-    background-color: #f9f9f9;
-}
-
-.device-registration-container select, .device-registration-container button {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-.device-registration-container button {
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-}
-
-.device-registration-container button:hover {
-    background-color: #45a049;
-}
-
-
-
 /* General styles */
 body {
     font-family: Arial, sans-serif;
@@ -411,3 +301,12 @@ body {
 .form-actions button:hover {
     opacity: 0.9;
 }
+
+
+
+
+
+
+
+
+
