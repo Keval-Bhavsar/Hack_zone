@@ -111,6 +111,79 @@
             </div>
 
 
+            <div class="devices-container" id="devices-container">
+                <!-- Placeholder for Device Cards -->
+                <div class="device-card">
+                    <h3>Device Name 1</h3>
+                    <p class="device-description">Device Description 1...</p>
+                    <div class="device-actions">
+                        <button class="edit-btn" onclick="editDevice(1)">Edit</button>
+                        <button class="delete-btn" onclick="deleteDevice(1)">Delete</button>
+                    </div>
+                </div>
+                <div class="device-card">
+                    <h3>Device Name 2</h3>
+                    <p class="device-description">Device Description 2...</p>
+                    <div class="device-actions">
+                        <button class="edit-btn" onclick="editDevice(2)">Edit</button>
+                        <button class="delete-btn" onclick="deleteDevice(2)">Delete</button>
+                    </div>
+                </div>
+
+                <!-- Add New Device Card -->
+                <div class="device-card add-device" onclick="showDeviceForm()">+</div>
+            </div>
+
+            <!-- Device Creation/Edit Form (Hidden Initially) -->
+            <div class="device-form-container" id="deviceForm">
+                <form class="device-form" onsubmit="submitDeviceForm(); return false;">
+                    <label for="deviceName">Device Name:</label>
+                    <input type="text" id="deviceName" name="deviceName">
+
+                    <label for="deviceDescription">Device Description:</label>
+                    <textarea id="deviceDescription" name="deviceDescription"></textarea>
+
+                    <label><input type="checkbox" id="deviceVisible" name="deviceVisible"> Visible</label>
+
+                    <div class="form-actions">
+                        <button type="submit">Submit</button>
+                        <button type="button" onclick="hideDeviceForm()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <script>
                 document.addEventListener('DOMContentLoaded', () => {
                     const avatar = document.querySelector('.avatar-container img');
@@ -181,37 +254,43 @@
 
                 // Assuming a similar devices array and rendering logic as before
 
-
-
-                
-                function populateDeviceSelector() {
-                    const deviceSelect = document.getElementById('deviceSelect');
-                    deviceSelect.innerHTML = '<option value="">Select a Device</option>'; // Reset selector
-                    devices.forEach(device => {
-                        const option = document.createElement('option');
-                        option.value = device.id;
-                        option.textContent = device.name;
-                        deviceSelect.appendChild(option);
-                    });
-                }
-
-                function registerDevice() {
-                    const deviceId = document.getElementById('deviceSelect').value;
-                    const eventId = document.getElementById('eventSelect').value;
-                    if (!deviceId || !eventId) {
-                        alert('Please select both a device and an event.');
-                        return;
+                function showDeviceForm(deviceId = null) {
+                    if (deviceId) {
+                        // Pre-fill form for editing existing device
+                        // This part would need actual device data fetching logic
+                        console.log(`Editing device ${deviceId}`);
+                    } else {
+                        // Clear the form for adding a new device
+                        document.getElementById('deviceName').value = '';
+                        document.getElementById('deviceDescription').value = '';
+                        document.getElementById('deviceVisible').checked = false;
                     }
-                    alert(`Device ID ${deviceId} registered for Event ID ${eventId}!`);
-                    // Here, you would typically send this information to the server for actual registration
+                    document.getElementById('deviceForm').style.display = 'block';
                 }
 
-                // Extend DOMContentLoaded listener to also populate device selector
-                document.addEventListener('DOMContentLoaded', () => {
-                    renderDevices();
-                    populateDeviceSelector();
-                });
+                function hideDeviceForm() {
+                    document.getElementById('deviceForm').style.display = 'none';
+                }
 
+                function submitDeviceForm() {
+                    // Logic to handle form submission for adding or updating a device
+                    // This would involve interacting with the backend in a real application
+                    alert('Device submitted!');
+                    hideDeviceForm();
+                }
+
+                function editDevice(deviceId) {
+                    // Show device form pre-filled with device info (simulated here)
+                    showDeviceForm(deviceId);
+                }
+
+                function deleteDevice(deviceId) {
+                    // Logic to delete a device
+                    // In a real application, this would involve a request to the backend
+                    console.log(`Deleting device ${deviceId}`);
+                    alert('Device deleted!');
+                    // Refresh or update the device list display as needed
+                }
 
 
             </script>

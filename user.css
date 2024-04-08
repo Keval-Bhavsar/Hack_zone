@@ -299,3 +299,115 @@ button:hover {
 .device-registration-container button:hover {
     background-color: #45a049;
 }
+
+
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+/* Container for device cards */
+.devices-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+/* Individual device cards */
+.device-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    cursor: pointer;
+    width: calc(33.333% - 20px); /* Adjust based on preference, accounting for gap */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.device-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Styling for the add device card specifically */
+.add-device {
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4CAF50;
+}
+
+.add-device:hover {
+    background-color: #e8f5e9;
+}
+
+/* Device form container */
+.device-form-container {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+}
+
+.device-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.device-form label {
+    margin-top: 10px;
+}
+
+.device-form input[type="text"],
+.device-form textarea,
+.device-form select {
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.device-form textarea {
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: #4CAF50; /* Submit button */
+}
+
+.form-actions button[type="button"] {
+    background-color: #f44336; /* Cancel button */
+}
+
+.form-actions button:hover {
+    opacity: 0.9;
+}
