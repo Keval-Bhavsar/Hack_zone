@@ -130,6 +130,22 @@ body {
 }
 
 
+/* Existing CSS for .events-container and .event-card */
+
+/* Add or adjust styles for the registration button within event cards */
+.event-card button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.event-card button:hover {
+    opacity: 0.8;
+}
 
 
 

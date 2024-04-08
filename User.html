@@ -163,7 +163,23 @@
 
 
 
-
+            <!-- Device Management and Add Device Form as previously defined -->
+<div>
+            <!-- Published Event Cards Container -->
+            <div class="events-container" id="publishedEventsContainer">
+                <h2>Published Events</h2>
+                <!-- Event Cards (These would be dynamically generated based on available events) -->
+                <div class="event-card">
+                    <h3>Event Title 1</h3>
+                    <img src="images/g-1.jpg" alt="Event 1 Image" class="event-image">
+                    <p class="event-time">Date & Time: March 30, 7:00 PM</p>
+                    <p class="event-venue">Venue: Downtown Conference Center</p>
+                    <p class="event-description">Join us for a night of learning and networking.</p>
+                    <button onclick="registerDeviceForEvent(1)">Register Device</button>
+                </div>
+                <!-- Additional event cards -->
+            </div>
+        </div>
 
 
 
@@ -291,6 +307,46 @@
                     alert('Device deleted!');
                     // Refresh or update the device list display as needed
                 }
+
+
+
+
+                // Assuming existing JavaScript for device management
+
+                // Example array of published events
+                const events = [
+                    { id: 1, title: 'Event Title 1', image: 'images/g-1.jpg', time: 'March 30, 7:00 PM', venue: 'Downtown Conference Center', description: 'Join us for a night of learning and networking.' },
+                    // Add more events as needed
+                ];
+
+                function renderPublishedEvents() {
+                    const container = document.getElementById('publishedEventsContainer');
+                    events.forEach(event => {
+                        const eventCard = document.createElement('div');
+                        eventCard.classList.add('event-card');
+                        eventCard.innerHTML = `
+            <h3>${event.title}</h3>
+            <img src="${event.image}" alt="Event Image" class="event-image">
+            <p class="event-time">Date & Time: ${event.time}</p>
+            <p class="event-venue">Venue: ${event.venue}</p>
+            <p class="event-description">${event.description}</p>
+            <button onclick="registerDeviceForEvent(${event.id})">Register Device</button>
+        `;
+                        container.appendChild(eventCard);
+                    });
+                }
+
+                function registerDeviceForEvent(eventId) {
+                    // Placeholder for registering a device for an event
+                    // This would typically involve user input to select which device to register and sending data to the server
+                    alert(`Registering device for Event ID: ${eventId}. This action will be handled by the backend.`);
+                }
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    renderPublishedEvents();
+                    // Call other render functions as necessary
+                });
+
 
 
             </script>
